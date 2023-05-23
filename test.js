@@ -302,7 +302,7 @@ var countBits = function (n) {
   for (c = 0; n; n >>= 1) c += n & 1;
   return c;
 };
-console.log(countBits(10));
+// console.log(countBits(10));
 //! Edabit 10 masala
 //todo:
 
@@ -335,10 +335,12 @@ function high(x) {
     "Y",
     "Z",
   ];
-  const differense = [];
+  const strMax = [];
+  const arr = [];
   let m = 0;
-  let v = [];
+  let diffenrense = {};
   x.split(" ").forEach((stri) => {
+    let d = stri;
     stri = stri.split("");
     m = 0;
     stri.forEach((a) => {
@@ -348,17 +350,30 @@ function high(x) {
           m += id;
         }
       });
-      m;
     });
-    differense.push(m);
+    arr.push(m);
+    arr.sort((a, b) => a - b);
+    diffenrense = { [d]: `${m}` };
+    diffenrense;
+    strMax.push(diffenrense);
   });
-  return differense;
+  let max = Math.max(...arr);
+  let maxStr = strMax.find((a) => {
+    return Object.values(a)[0] == max;
+  });
+  // return Object.keys(maxStr)[0];
+
+  //! Best solutions
+  let as = x
+    .split(" ")
+    .map((x) => [...x].reduce((a, b) => a + b.charCodeAt(0) - 96, 0));
+  return x.split(" ")[as.indexOf(Math.max(...as))];
 }
 
 // console.log(high("man i need a taxi up to ubud")); //"taxi"
 // console.log(high("what time are we climbing up the volcano")); //"volcano"
 // console.log(high("take me to semynak")); //"semynak"
-console.log(high("no sa salmz")); //"aa"
+console.log(high("no sa salmz salom")); //"aa"
 // console.log(high("c aa")); //"b"
 // console.log(high("bb d")); //"bb"
 // console.log(high("d bb")); //"d"
