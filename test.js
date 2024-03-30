@@ -378,4 +378,3 @@ console.log(high("no sa salmz salom")); //"aa"
 // console.log(high("bb d")); //"bb"
 // console.log(high("d bb")); //"d"
 // console.log(high("adq")); //"aaa"
-
